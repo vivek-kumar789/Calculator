@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+  <title>HTML</title>
+
+  <!-- HTML -->
+
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+      border: none;
+      outline: none;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      background: linear-gradient(45deg, #0a0a0a, #3a4452);
+      justify-content: center;
+      align-items: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    .box {
+      width: fit-content;
+      box-sizing: border-box;
+      padding: 18px;
+      border: 1.2px solid #717377;
+      border-radius: 18px;
+    }
+
+    input[type="button"],
+    button {
+      padding: 8px;
+      margin: 5px;
+      border-radius: 100%;
+      width: 58px;
+      height: 58px;
+      background: linear-gradient(45deg, #0a0a0a, #3a4452);
+      color: white;
+      font-size: 15pt;
+      box-shadow: inset 1px 5px 10px #3a4452, -4px -2px 10px #515862;
+      transition: .01s;
+    }
+
+    input[type="button"]:active {
+      box-shadow: inset -1px 5px 10px #3a4452;
+    }
+
+    input[type="text"] {
+      margin: 9px;
+      color: white;
+      width: 260px;
+      height: 65px;
+      background: none;
+      text-align: right;
+      font-size: 40pt;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    #display::placeholder {
+      color: white;
+
+    }
+
+    #operat {
+      color: #FB7C14;
+      font-weight: 500;
+      font-size: 20pt;
+    }
+
+    #evaluate {
+      position: relative;
+      left: 2px;
+      top: 4px;
+    }
+
+    #backspace {
+      color: #FB7C14;
+      font-size: 19pt;
+      margin-top: 2px;
+      margin-right: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Project -->
+  <div class="box">
+    <input type="text" id="display" disabled placeholder="0" />
+    <div class="div1">
+      <input type="button" value="AC" style="color: #FB7C14; font-weight:500; font-size: 15pt" onclick="display.value = ''">
+      <button type="button" onclick="display.value = display.value.toString().slice(0,-1)"><i class="fas fa-backspace" id="backspace"></i></button>
+      <input type="button" value="x!" id="operat" onclick="factorial()">
+      <input type="button" value="÷" id="operat" onclick="display.value += '/'">
+    </div>
+    <div class="div2">
+      <input type="button" value="7" onclick="display.value += '7'">
+      <input type="button" value="8" onclick="display.value += '8'">
+      <input type="button" value="9" onclick="display.value += '9'">
+      <input type="button" value="×" id="operat" onclick="display.value += '*'">
+    </div>
+    <div class="div3">
+      <input type="button" value="4" onclick="display.value += '4'">
+      <input type="button" value="5" onclick="display.value += '5'">
+      <input type="button" value="6" onclick="display.value += '6'">
+      <input type="button" value="–" id="operat" onclick="display.value += '-'">
+    </div>
+    <div class="div4">
+      <input type="button" value="1" onclick="display.value += '1'">
+      <input type="button" value="2" onclick="display.value += '2'">
+      <input type="button" value="3" onclick="display.value += '3'">
+      <input type="button" value="+" id="operat" onclick="display.value += '+'">
+    </div>
+    <div class="div5">
+      <input type="button" value="e" onclick="display.value += '2.71828183'">
+      <input type="button" value="0" onclick="display.value += '0'">
+      <input type="button" value="." onclick="display.value += '.'">
+      <input type="button" id="evaluate" style="background: #FB7C14; box-shadow: none; font-size:28pt;" value="=" onclick="display.value = eval(display.value)">
+    </div>
+  </div>
+  <script>
+    const factorial = () => {
+      var user = display.value;
+      var fact = 1;
+      for (var i = user; i >= 1; i--)
+      {
+        fact = fact * i;
+      }
+      display.value = fact;
+    }
+  </script>
+</body>
+
+</html
